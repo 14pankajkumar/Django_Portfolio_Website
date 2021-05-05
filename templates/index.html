@@ -23,7 +23,7 @@
 
         <div class="row">
           <div class="col-lg-4" data-aos="fade-right">
-            <img src="{{profile.DP.url}} " class="img-fluid" alt="">
+            <img src="{{profile.imageURL}} " class="img-fluid" alt="">
           </div>
           <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
             <h3>{{about.heading}} </h3>
@@ -177,9 +177,9 @@
           {% for app in application %}
           <div class="col-lg-4 col-md-6 portfolio-item filter-app">
             <div class="portfolio-wrap">
-              <img src="{{app.image.url}} " class="img-fluid" alt="">
+              <img src="{{app.imageURL}} " class="img-fluid" alt="">
               <div class="portfolio-links">
-                <a href="{{app.image.url}} " data-gall="portfolioGallery" class="venobox" title="{{app.title}} "><i class="bx bx-plus"></i></a>
+                <a href="{{app.imageURL}} " data-gall="portfolioGallery" class="venobox" title="{{app.title}} "><i class="bx bx-plus"></i></a>
                 <a href="{% url 'apps' app.slug  %}" title="More Details"><i class="bx bx-link"></i></a>
               </div>
             </div>
@@ -189,9 +189,9 @@
           {% for webs in web %}
           <div class="col-lg-4 col-md-6 portfolio-item filter-web">
             <div class="portfolio-wrap">
-              <img src="{{webs.image.url}} " class="img-fluid" alt="">
+              <img src="{{webs.imageURL}} " class="img-fluid" alt="">
               <div class="portfolio-links">
-                <a href="{{webs.image.url}}" data-gall="portfolioGallery" class="venobox" title="{{webs.title}}"><i class="bx bx-plus"></i></a>
+                <a href="{{webs.imageURL}}" data-gall="portfolioGallery" class="venobox" title="{{webs.title}}"><i class="bx bx-plus"></i></a>
                 <a href="{% url 'web' webs.slug  %}" title="More Details"><i class="bx bx-link"></i></a>
               </div>
             </div>
@@ -201,9 +201,9 @@
           {% for start in startup %}
           <div class="col-lg-4 col-md-6 portfolio-item filter-card">
             <div class="portfolio-wrap">
-              <img src="{{start.image.url}} " class="img-fluid" alt="">
+              <img src="{{start.imageURL}} " class="img-fluid" alt="">
               <div class="portfolio-links">
-                <a href="{{start.image.url}} " data-gall="portfolioGallery" class="venobox" title="{{start.title}}"><i class="bx bx-plus"></i></a>
+                <a href="{{start.imageURL}} " data-gall="portfolioGallery" class="venobox" title="{{start.title}}"><i class="bx bx-plus"></i></a>
                 <a href="{% url 'startup' start.slug  %}" title="More Details"><i class="bx bx-link"></i></a>
               </div>
             </div>

@@ -50,47 +50,123 @@ class Professional(models.Model):
     year = models.CharField(max_length=20)
     company = models.CharField(max_length=200)
     description = models.TextField()
+
     def __str__(self):
         return self.work
     
 class Application(models.Model):
-    image = models.ImageField(null=True, blank=True, upload_to="portfolio")
-    image2 = models.ImageField(null=True, blank=True, upload_to="portfolio")
-    image3 = models.ImageField(null=True, blank=True, upload_to="portfolio")
-    slug = models.SlugField(max_length=20, unique=True, null=True) 
+    image = models.ImageField(null=True, blank=True)
+    image2 = models.ImageField(null=True, blank=True)
+    image3 = models.ImageField(null=True, blank=True)
+    slug = models.SlugField(max_length=200, unique=True, null=True) 
     client = models.CharField(max_length=100)
     date = models.DateField()
-    url = models.URLField(max_length=100)
-    title = models.CharField(max_length=100)
+    url = models.URLField(max_length=200)
+    title = models.CharField(max_length=200, db_index=True)
     description = models.TextField()
+
     def __str__(self):
         return self.title
+
+    @property
+    def imageURL(self): 
+        try:
+            url = self.image.url  
+        except:
+            url = ''
+        return url
+
+    @property
+    def image2URL(self): 
+        try:
+            url = self.image2.url  
+        except:
+            url = ''
+        return url
+
+    @property
+    def image3URL(self): 
+        try:
+            url = self.image3.url  
+        except:
+            url = ''
+        return url
 
 class Startup(models.Model):
-    image = models.ImageField(null=True, blank=True, upload_to="portfolio")
-    image2 = models.ImageField(null=True, blank=True, upload_to="portfolio")
-    image3 = models.ImageField(null=True, blank=True, upload_to="portfolio")
+    image = models.ImageField(null=True, blank=True)
+    image2 = models.ImageField(null=True, blank=True)
+    image3 = models.ImageField(null=True, blank=True)
     slug = models.SlugField(max_length=20, unique=True, null=True)
     client = models.CharField(max_length=100)
     date = models.DateField()
     url = models.URLField(max_length=100)
     title = models.CharField(max_length=100)
     description = models.TextField()
+
     def __str__(self):
         return self.title
 
+    @property
+    def imageURL(self): 
+        try:
+            url = self.image.url 
+        except:
+            url = ''
+        return url 
+    
+    @property
+    def image2URL(self): 
+        try:
+            url = self.image2.url  
+        except:
+            url = ''
+        return url
+
+    @property
+    def image3URL(self): 
+        try:
+            url = self.image3.url  
+        except:
+            url = ''
+        return url
+
 class Web(models.Model):
-    image = models.ImageField(null=True, blank=True, upload_to="portfolio")
-    image2 = models.ImageField(null=True, blank=True, upload_to="portfolio")
-    image3 = models.ImageField(null=True, blank=True, upload_to="portfolio")
+    image = models.ImageField(null=True, blank=True)
+    image2 = models.ImageField(null=True, blank=True)
+    image3 = models.ImageField(null=True, blank=True)
     slug = models.SlugField(max_length=20, unique=True, null=True)
     client = models.CharField(max_length=100)
     date = models.DateField()
     url = models.URLField(max_length=100)
     title = models.CharField(max_length=100)
     description = models.TextField()
+
     def __str__(self):
         return self.title
+
+    @property
+    def imageURL(self):
+        try:
+            url = self.image.url
+        except:
+            url = ''
+        return url 
+
+    @property
+    def image2URL(self): 
+        try:
+            url = self.image2.url  
+        except:
+            url = ''
+        return url
+
+    @property
+    def image3URL(self): 
+        try:
+            url = self.image3.url  
+        except:
+            url = ''
+        return url
 
 class Service(models.Model):
     icon = models.CharField(max_length=50)
@@ -108,7 +184,7 @@ class SocialMedia(models.Model):
     linkedin = models.URLField(max_length=100)
 
 class Profile(models.Model):
-    DP = models.ImageField(null=True, blank=True, upload_to="img")
+    image = models.ImageField(null=True, blank=True)
     name = models.CharField(max_length=50)
     DOB = models.CharField(max_length=50)
     email = models.CharField(max_length=50)
@@ -116,6 +192,15 @@ class Profile(models.Model):
     phone = models.CharField(max_length=15)
     address = models.CharField(max_length=150)
     address_url = models.URLField(max_length=500)
+
     def __str__(self):
         return self.name
+
+    @property
+    def imageURL(self): 
+        try:
+            url = self.image.url     
+        except:
+            url = ''
+        return url 
     
